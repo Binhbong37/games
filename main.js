@@ -124,6 +124,6 @@ function setValues(curr, prev) {
     }
 
     if (prev) {
-        prevNumber.textContent = '0 0';
+        prevNumber.textContent = '';
     }
 }

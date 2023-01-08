@@ -7,6 +7,12 @@
         <title>Games Lotory</title>
     </head>
     <body>
+        <!-- header -->
+        <div class="header-logo">
+            <div class="logo-header">
+                <img src="./public/img/logo.jpg" alt="logo-c" class="logo-c" />
+            </div>
+        </div>
         <div id="app" class="app">
             <h1 class="center">Mini Games</h1>
             <div class="numbers">
@@ -15,13 +21,22 @@
                     <span id="number2" class="number-gen">0</span>
                     <span id="number3" class="number-gen">0</span>
                 </div>
-                <h2 id="prev-number">0</h2>
+                <h2 id="prev-number"></h2>
             </div>
             <div class="btns">
                 <button id="start-btn">Bắt đầu</button>
                 <button disabled id="stop-btn">Dừng</button>
                 <button id="reset">Chơi Lại</button>
             </div>
+        </div>
+
+        <div class="audio">
+            <audio controls autoplay hidden>
+                <source
+                    src="./public/mp3/co-be-mua-dong.mp3"
+                    type="audio/mpeg"
+                />
+            </audio>
         </div>
         <script src="main.js"></script>
     </body>
