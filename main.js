@@ -80,9 +80,11 @@ stopBtn.addEventListener('click', () => {
 });
 
 function pick2Number() {
-    const num1 = Math.floor(Math.random() * 4);
-    const num2 = Math.floor(Math.random() * 10);
-
+    let num1 = Math.floor(Math.random() * 4);
+    let num2 = Math.floor(Math.random() * 10);
+    if (num1 === 0 && num2 === 0) {
+        num2 = 1;
+    }
     currentNums[0] = num1;
     currentNums[1] = num2;
 
@@ -105,6 +107,7 @@ function checkNumbers() {
     ) {
         return pick2Number();
     }
+
     console.log({ checkNums });
     console.log({ currentNums });
     display_my_nums();
@@ -116,7 +119,11 @@ function display_my_nums() {
     number2.textContent = currentNums[1];
     resNums[0] = Number(number1.textContent);
     resNums[1] = Number(number2.textContent);
+
     checkNums.push(resNums);
+    if (checkNums.length > 32) {
+        checkNums = [];
+    }
 }
 
 function startIncreasing() {
