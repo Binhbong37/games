@@ -8,7 +8,7 @@
 }
 
 .bg {
-    background-image: url('./public/img/banner3.png');
+    background-image: url('./public/img/banner2.png');
     background-size: 100% 100vh;
     background-repeat: no-repeat;
 }
@@ -29,7 +29,7 @@
     margin-bottom: 100px;
     position: absolute;
     top: 50%;
-    left: 11%;
+    left: 20%;
     transform: translateY(-50%);
 }
 
@@ -93,5 +93,5 @@ button:disabled {
 .audio {
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 50%;
 }
