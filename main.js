@@ -1,6 +1,5 @@
 const number1 = document.getElementById('number1');
 const number2 = document.getElementById('number2');
-const number3 = document.getElementById('number3');
 const prevNumber = document.getElementById('prev-number');
 const startBtn = document.getElementById('start-btn');
 const stopBtn = document.getElementById('stop-btn');
@@ -11,10 +10,12 @@ let prevNumberText = undefined;
 let interval = undefined;
 let increasingNumber = 0;
 
+let currentNums = [];
+let checkNums = [];
+
 reset.addEventListener('click', () => {
     number1.textContent = 0;
     number2.textContent = 0;
-    number3.textContent = 0;
     stopBtn.style.display = 'block';
     stopBtn.disabled = true;
     startBtn.disabled = false;
@@ -22,12 +23,9 @@ reset.addEventListener('click', () => {
 });
 
 startBtn.addEventListener('click', () => {
-    document.getElementById('app').classList.remove('success') ||
-        document.getElementById('app').classList.remove('wrong');
     startBtn.disabled = true;
     stopBtn.disabled = false;
     stopBtn.style.display = 'block';
-
     if (numberText) {
         setValues(null, prevNumberText);
     }
@@ -78,38 +76,59 @@ stopBtn.addEventListener('click', () => {
         32,
     ];
 
-    number1.textContent = 0;
-    // number1.textContent = arr[Math.floor(Math.random() * 32)];
-    number2.textContent = Math.floor(Math.random() * 3);
-    number3.textContent = Math.floor(Math.random() * 10);
+    pick2Number();
 });
 
-function checkNumbers(dir) {
-    if (dir === 'up') {
-        if (numberText > prevNumberText) {
-            document.getElementById('app').classList.add('success');
-        } else {
-            document.getElementById('app').classList.add('wrong');
-        }
-    } else {
-        if (numberText < prevNumberText) {
-            document.getElementById('app').classList.add('success');
-        } else {
-            document.getElementById('app').classList.add('wrong');
-        }
+function pick2Number() {
+    const num1 = Math.floor(Math.random() * 4);
+    const num2 = Math.floor(Math.random() * 10);
+
+    currentNums[0] = num1;
+    currentNums[1] = num2;
+
+    checkNumbers();
+}
+
+function checkNumbers() {
+    const isCheck = searchForArray(checkNums, currentNums);
+    if (isCheck !== -1) {
+        return pick2Number();
     }
+
+    if (
+        (currentNums[0] === 3 && currentNums[1] === 4) ||
+        (currentNums[0] === 3 && currentNums[1] === 5) ||
+        (currentNums[0] === 3 && currentNums[1] === 6) ||
+        (currentNums[0] === 3 && currentNums[1] === 7) ||
+        (currentNums[0] === 3 && currentNums[1] === 8) ||
+        (currentNums[0] === 3 && currentNums[1] === 9)
+    ) {
+        return pick2Number();
+    }
+    console.log({ checkNums });
+    console.log({ currentNums });
+    display_my_nums();
+}
+
+function display_my_nums() {
+    let resNums = [];
+    number1.textContent = currentNums[0];
+    number2.textContent = currentNums[1];
+    resNums[0] = Number(number1.textContent);
+    resNums[1] = Number(number2.textContent);
+    checkNums.push(resNums);
 }
 
 function startIncreasing() {
     interval = setInterval(() => {
         increasingNumber++;
-        if (increasingNumber >= 32) {
+        if (increasingNumber >= 9) {
             increasingNumber = 0;
         }
 
         numberText = increasingNumber;
         setValues(numberText, null);
-    }, 20);
+    }, 50);
 }
 
 function stopIncreasing() {
@@ -120,10 +139,17 @@ function setValues(curr, prev) {
     if (curr) {
         number1.textContent = curr;
         number2.textContent = curr;
-        number3.textContent = curr;
     }
+}
 
-    if (prev) {
-        prevNumber.textContent = '';
+function searchForArray(haystack, needle) {
+    var i, j, current;
+    for (i = 0; i < haystack.length; ++i) {
+        if (needle.length === haystack[i].length) {
+            current = haystack[i];
+            for (j = 0; j < needle.length && needle[j] === current[j]; ++j);
+            if (j === needle.length) return i;
+        }
     }
+    return -1;
 }
