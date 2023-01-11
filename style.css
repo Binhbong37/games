@@ -7,12 +7,11 @@
     box-sizing: border-box;
 }
 
-.bg {
+body {
     background-image: url('./public/img/banner2.png');
     background-size: 100% 100vh;
     background-repeat: no-repeat;
 }
-
 .positon-main {
     position: relative;
     height: 100vh;
@@ -20,22 +19,22 @@
 }
 
 .app {
-    width: 400px;
-    background-color: #222;
-    color: #ccc;
+    width: 500px;
+    background-image: linear-gradient(rgb(220, 85, 13), #801011);
+    color: #fff;
     padding: 20px;
     border-radius: 7px;
     font-family: 'Noto Sans', sans-serif;
     margin-bottom: 100px;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 20%;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 8px 24px;
 }
-
 .numbers {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
 }
 
 .gen {
@@ -46,6 +45,8 @@
     border: 1px white solid;
     padding: 0.5rem 1rem;
     margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    font-size: 20px;
 }
 
 .btns {
@@ -56,8 +57,9 @@
 
 button {
     padding: 10px;
-    border: 2px solid #222;
-    color: #ccc;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: bold;
     background-color: transparent;
     box-shadow: 0 0 7px #777;
     border-radius: 2px;
@@ -94,4 +96,28 @@ button:disabled {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+@media screen and (max-width: 1546px) {
+    .app {
+        left: 19%;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 1205px) {
+    .app {
+        left: 19%;
+        width: 350px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media screen and (max-width: 1068px) {
+    .app {
+        left: 19%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
