@@ -108,8 +108,6 @@ function checkNumbers() {
         return pick2Number();
     }
 
-    console.log({ checkNums });
-    console.log({ currentNums });
     display_my_nums();
 }
 
