@@ -8,21 +8,29 @@
 }
 
 .bg {
-    background-image: url('./public/img/banner2.png');
-    background-size: 100%;
+    background-image: url('./public/img/banner3.png');
+    background-size: 100% 100vh;
     background-repeat: no-repeat;
 }
 
+.positon-main {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
 .app {
-    width: 450px;
+    width: 400px;
     background-color: #222;
     color: #ccc;
     padding: 20px;
     border-radius: 7px;
     font-family: 'Noto Sans', sans-serif;
-    margin-top: 280px;
-    margin-left: 250px;
     margin-bottom: 100px;
+    position: absolute;
+    top: 50%;
+    left: 11%;
+    transform: translateY(-50%);
 }
 
 .numbers {
@@ -80,4 +88,10 @@ button:disabled {
 
 .center {
     text-align: center;
+}
+
+.audio {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
