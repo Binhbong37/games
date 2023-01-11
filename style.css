@@ -7,22 +7,22 @@
     box-sizing: border-box;
 }
 
-.logo-header {
-    width: 200px;
-}
-
-.logo-header img {
-    width: 100%;
+.bg {
+    background-image: url('./public/img/banner2.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .app {
-    width: 400px;
+    width: 450px;
     background-color: #222;
     color: #ccc;
     padding: 20px;
-    margin: 50px auto;
     border-radius: 7px;
     font-family: 'Noto Sans', sans-serif;
+    margin-top: 280px;
+    margin-left: 250px;
+    margin-bottom: 100px;
 }
 
 .numbers {
