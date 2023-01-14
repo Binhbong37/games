@@ -98,7 +98,6 @@ function checkNumbers() {
     }
 
     if (
-        (currentNums[0] === 3 && currentNums[1] === 4) ||
         (currentNums[0] === 3 && currentNums[1] === 5) ||
         (currentNums[0] === 3 && currentNums[1] === 6) ||
         (currentNums[0] === 3 && currentNums[1] === 7) ||
@@ -119,7 +118,7 @@ function display_my_nums() {
     resNums[1] = Number(number2.textContent);
 
     checkNums.push(resNums);
-    if (checkNums.length > 32) {
+    if (checkNums.length > 33) {
         checkNums = [];
     }
 }
