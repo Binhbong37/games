@@ -142,7 +142,7 @@ function stopIncreasing() {
 function setValues(curr, prev) {
     if (curr) {
         number1.textContent = curr;
-        number2.textContent = curr;
+        number2.textContent = curr + 1;
     }
 }
 
